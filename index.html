@@ -343,7 +343,7 @@
     </style>
   </head>
   
-    <body>
+    <body class="gitedit" data-branch="gh-pages" data-file="index.html">
     <!-- First Parallax Image with Logo Text -->
     <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
       <div class="w3-display-middle" style="white-space:nowrap;">
@@ -467,5 +467,19 @@
       captionText.innerHTML = element.alt;
     }
     </script>
+
+    <link rel="stylesheet" href="https://rawgit.com/krispo/git-edit/master/git-edit.css">
+    <script src="https://rawgit.com/krispo/git-connect/master/git-connect.js"></script>
+    <script src="https://rawgit.com/krispo/git-edit/master/git-edit.js"></script>
+
+    <script>
+        window.connection({
+            client_id: "sdfjhg23jhg345j33io", //your application client_id
+            proxy: "http://git-proxy.herokuapp.com", //your git proxy
+            owner: "krispo", //your github username
+            reponame: "git-edit" //your reponame
+        })
+    </script>
+
     </body>
 </html>
