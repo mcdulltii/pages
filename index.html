@@ -1,299 +1,473 @@
 <!DOCTYPE html>
 <html>
+<title>Photos</title>
   <head>
     <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
-    <style> body {padding: 0; margin: 0;} </style>
+    <link rel="stylesheet" href="Portfolio.css">
+    <link rel="stylesheet" href="font.css">
+    <link rel="stylesheet" href="font2.css">
     <script src="p5.min.js"></script>
     <script src="p5.dom.min.js"></script>
     <script src="p5.sound.min.js"></script>
+    
     <script>
     let windowW = window.innerWidth;
-let windowH = window.innerHeight;
-let isLoaded = false;
-let glitch;
-let imgSrc = '3.jpg';
+    let windowH = window.innerHeight;
+    let isLoaded = false;
+    let glitch;
+    let imgSrc = 'Photos/6.jpg';
 
-function setup() {
-    background(0);
-    createCanvas(windowW, windowH);
-    loadImage(imgSrc, function(img) {
-        glitch = new Glitch(img);
-        isLoaded = true;
-    });
-}
-
-function draw() {
-    clear();
-    background(0);
-
-    if (isLoaded) {
-        glitch.show();
+    function setup() {
+        background(0);
+        createCanvas(windowW, windowH);
+        loadImage(imgSrc, function(img) {
+            glitch = new Glitch(img);
+            isLoaded = true;
+        });
     }
 
-    // fill(255, 255, 255);
-    // textSize(14);
-    // text('FPS: ' + floor(frameRate()), 20, 30);
+    function draw() {
+        clear();
+        background(0);
 
-}
-
-class Glitch {
-    constructor(img) {
-        this.channelLen = 4;
-        this.imgOrigin = img;
-        this.imgOrigin.loadPixels();
-        this.copyData = [];
-        this.flowLineImgs = [];
-        this.shiftLineImgs = [];
-        this.shiftRGBs = [];
-        this.scatImgs = [];
-        this.throughFlag = true;
-        this.copyData = new Uint8ClampedArray(this.imgOrigin.pixels);
-
-        // flow line
-        for (let i = 0; i < 1; i++) {
-            let o = {
-                pixels: null,
-                t1: floor(random(0, 1000)),
-                speed: floor(random(4, 24)),
-                randX: floor(random(24, 80))
-            };
-            this.flowLineImgs.push(o);
+        if (isLoaded) {
+            glitch.show();
         }
 
-        // shift line
-        for (let i = 0; i < 6; i++) {
-            let o = null;
-            this.shiftLineImgs.push(o);
-        }
+        // fill(255, 255, 255);
+        // textSize(14);
+        // text('FPS: ' + floor(frameRate()), 20, 30);
 
-        // shift RGB
-        for (let i = 0; i < 1; i++) {
-            let o = null;
-            this.shiftRGBs.push(o);
-        }
-
-        // scat imgs
-        for (let i = 0; i < 3; i++) {
-            let scatImg = {
-                img: null,
-                x: 0,
-                y: 0
-            };
-            this.scatImgs.push(scatImg);
-        }
     }
 
-    replaceData(destImg, srcPixels) {
-        for (let y = 0; y < destImg.height; y++) {
-            for (let x = 0; x < destImg.width; x++) {
-                let r, g, b, a;
-                let index;
-                index = (y * destImg.width + x) * this.channelLen;
-                r = index;
-                g = index + 1;
-                b = index + 2;
-                a = index + 3;
-                destImg.pixels[r] = srcPixels[r];
-                destImg.pixels[g] = srcPixels[g];
-                destImg.pixels[b] = srcPixels[b];
-                destImg.pixels[a] = srcPixels[a];
+    class Glitch {
+        constructor(img) {
+            this.channelLen = 4;
+            this.imgOrigin = img;
+            this.imgOrigin.loadPixels();
+            this.copyData = [];
+            this.flowLineImgs = [];
+            this.shiftLineImgs = [];
+            this.shiftRGBs = [];
+            this.scatImgs = [];
+            this.throughFlag = true;
+            this.copyData = new Uint8ClampedArray(this.imgOrigin.pixels);
+
+            // flow line
+            for (let i = 0; i < 1; i++) {
+                let o = {
+                    pixels: null,
+                    t1: floor(random(0, 1000)),
+                    speed: floor(random(4, 24)),
+                    randX: floor(random(24, 80))
+                };
+                this.flowLineImgs.push(o);
+            }
+
+            // shift line
+            for (let i = 0; i < 6; i++) {
+                let o = null;
+                this.shiftLineImgs.push(o);
+            }
+
+            // shift RGB
+            for (let i = 0; i < 1; i++) {
+                let o = null;
+                this.shiftRGBs.push(o);
+            }
+
+            // scat imgs
+            for (let i = 0; i < 3; i++) {
+                let scatImg = {
+                    img: null,
+                    x: 0,
+                    y: 0
+                };
+                this.scatImgs.push(scatImg);
             }
         }
-        destImg.updatePixels();
-    }
 
-    flowLine(srcImg, obj) {
-
-        let destPixels,
-            tempY;
-        destPixels = new Uint8ClampedArray(srcImg.pixels);
-        obj.t1 %= srcImg.height;
-        obj.t1 += obj.speed;
-        //tempY = floor(noise(obj.t1) * srcImg.height);
-        tempY = floor(obj.t1);
-        for (let y = 0; y < srcImg.height; y++) {
-            if (tempY === y) {
-                for (let x = 0; x < srcImg.width; x++) {
+        replaceData(destImg, srcPixels) {
+            for (let y = 0; y < destImg.height; y++) {
+                for (let x = 0; x < destImg.width; x++) {
                     let r, g, b, a;
                     let index;
-                    index = (y * srcImg.width + x) * this.channelLen;
+                    index = (y * destImg.width + x) * this.channelLen;
                     r = index;
                     g = index + 1;
                     b = index + 2;
                     a = index + 3;
-                    destPixels[r] = srcImg.pixels[r] + obj.randX;
-                    destPixels[g] = srcImg.pixels[g] + obj.randX;
-                    destPixels[b] = srcImg.pixels[b] + obj.randX;
-                    destPixels[a] = srcImg.pixels[a];
+                    destImg.pixels[r] = srcPixels[r];
+                    destImg.pixels[g] = srcPixels[g];
+                    destImg.pixels[b] = srcPixels[b];
+                    destImg.pixels[a] = srcPixels[a];
                 }
             }
+            destImg.updatePixels();
         }
-        return destPixels;
-    }
 
-    shiftLine(srcImg) {
+        flowLine(srcImg, obj) {
 
-        let offsetX;
-        let rangeMin, rangeMax;
-        let destPixels;
-        let rangeH;
-
-        destPixels = new Uint8ClampedArray(srcImg.pixels);
-        rangeH = srcImg.height;
-        rangeMin = floor(random(0, rangeH));
-        rangeMax = rangeMin + floor(random(1, rangeH - rangeMin));
-        offsetX = this.channelLen * floor(random(-40, 40));
-
-        for (let y = 0; y < srcImg.height; y++) {
-            if (y > rangeMin && y < rangeMax) {
-                for (let x = 0; x < srcImg.width; x++) {
+            let destPixels,
+                tempY;
+            destPixels = new Uint8ClampedArray(srcImg.pixels);
+            obj.t1 %= srcImg.height;
+            obj.t1 += obj.speed;
+            //tempY = floor(noise(obj.t1) * srcImg.height);
+            tempY = floor(obj.t1);
+            for (let y = 0; y < srcImg.height; y++) {
+                if (tempY === y) {
+                    for (let x = 0; x < srcImg.width; x++) {
                         let r, g, b, a;
-                        let r2, g2, b2, a2;
                         let index;
-
                         index = (y * srcImg.width + x) * this.channelLen;
                         r = index;
                         g = index + 1;
                         b = index + 2;
                         a = index + 3;
-                        r2 = r + offsetX;
-                        g2 = g + offsetX;
-                        b2 = b + offsetX;
-                        destPixels[r] = srcImg.pixels[r2];
-                        destPixels[g] = srcImg.pixels[g2];
-                        destPixels[b] = srcImg.pixels[b2];
+                        destPixels[r] = srcImg.pixels[r] + obj.randX;
+                        destPixels[g] = srcImg.pixels[g] + obj.randX;
+                        destPixels[b] = srcImg.pixels[b] + obj.randX;
                         destPixels[a] = srcImg.pixels[a];
+                    }
                 }
             }
+            return destPixels;
         }
-        return destPixels;
-    }
 
-    shiftRGB(srcImg) {
+        shiftLine(srcImg) {
 
-        let randR, randG, randB;
-        let destPixels;
-        let range;
+            let offsetX;
+            let rangeMin, rangeMax;
+            let destPixels;
+            let rangeH;
 
-        range = 16;
-        destPixels = new Uint8ClampedArray(srcImg.pixels);
-        randR = (floor(random(-range, range)) * srcImg.width + floor(random(-range, range))) * this.channelLen;
-        randG = (floor(random(-range, range)) * srcImg.width + floor(random(-range, range))) * this.channelLen;
-        randB = (floor(random(-range, range)) * srcImg.width + floor(random(-range, range))) * this.channelLen;
+            destPixels = new Uint8ClampedArray(srcImg.pixels);
+            rangeH = srcImg.height;
+            rangeMin = floor(random(0, rangeH));
+            rangeMax = rangeMin + floor(random(1, rangeH - rangeMin));
+            offsetX = this.channelLen * floor(random(-40, 40));
 
-        for (let y = 0; y < srcImg.height; y++) {
-            for (let x = 0; x < srcImg.width; x++) {
-                let r, g, b, a;
-                let r2, g2, b2, a2;
-                let index;
+            for (let y = 0; y < srcImg.height; y++) {
+                if (y > rangeMin && y < rangeMax) {
+                    for (let x = 0; x < srcImg.width; x++) {
+                            let r, g, b, a;
+                            let r2, g2, b2, a2;
+                            let index;
 
-                index = (y * srcImg.width + x) * this.channelLen;
-                r = index;
-                g = index + 1;
-                b = index + 2;
-                a = index + 3;
-                r2 = (r + randR) % srcImg.pixels.length;
-                g2 = (g + randG) % srcImg.pixels.length;
-                b2 = (b + randB) % srcImg.pixels.length;
-                destPixels[r] = srcImg.pixels[r2];
-                destPixels[g] = srcImg.pixels[g2];
-                destPixels[b] = srcImg.pixels[b2];
-                destPixels[a] = srcImg.pixels[a];
+                            index = (y * srcImg.width + x) * this.channelLen;
+                            r = index;
+                            g = index + 1;
+                            b = index + 2;
+                            a = index + 3;
+                            r2 = r + offsetX;
+                            g2 = g + offsetX;
+                            b2 = b + offsetX;
+                            destPixels[r] = srcImg.pixels[r2];
+                            destPixels[g] = srcImg.pixels[g2];
+                            destPixels[b] = srcImg.pixels[b2];
+                            destPixels[a] = srcImg.pixels[a];
+                    }
+                }
             }
+            return destPixels;
         }
 
-        return destPixels;
-    }
+        shiftRGB(srcImg) {
 
-    getRandomRectImg(srcImg) {
-        let startX;
-        let startY;
-        let rectW;
-        let rectH;
-        let destImg;
-        startX = floor(random(0, srcImg.width - 30));
-        startY = floor(random(0, srcImg.height - 50));
-        rectW = floor(random(30, srcImg.width - startX));
-        rectH = floor(random(1, 50));
-        destImg = srcImg.get(startX, startY, rectW, rectH);
-        destImg.loadPixels();
-        return destImg;
-    }
+            let randR, randG, randB;
+            let destPixels;
+            let range;
 
-    show() {
-      
-        // restore the original state
-        this.replaceData(this.imgOrigin, this.copyData);
+            range = 16;
+            destPixels = new Uint8ClampedArray(srcImg.pixels);
+            randR = (floor(random(-range, range)) * srcImg.width + floor(random(-range, range))) * this.channelLen;
+            randG = (floor(random(-range, range)) * srcImg.width + floor(random(-range, range))) * this.channelLen;
+            randB = (floor(random(-range, range)) * srcImg.width + floor(random(-range, range))) * this.channelLen;
 
-        // sometimes pass without effect processing
-        let n = floor(random(100));
-        if (n > 75 && this.throughFlag) {
-            this.throughFlag = false;
-            setTimeout(() => {
-                this.throughFlag = true;
-            }, floor(random(40, 400)));
+            for (let y = 0; y < srcImg.height; y++) {
+                for (let x = 0; x < srcImg.width; x++) {
+                    let r, g, b, a;
+                    let r2, g2, b2, a2;
+                    let index;
+
+                    index = (y * srcImg.width + x) * this.channelLen;
+                    r = index;
+                    g = index + 1;
+                    b = index + 2;
+                    a = index + 3;
+                    r2 = (r + randR) % srcImg.pixels.length;
+                    g2 = (g + randG) % srcImg.pixels.length;
+                    b2 = (b + randB) % srcImg.pixels.length;
+                    destPixels[r] = srcImg.pixels[r2];
+                    destPixels[g] = srcImg.pixels[g2];
+                    destPixels[b] = srcImg.pixels[b2];
+                    destPixels[a] = srcImg.pixels[a];
+                }
+            }
+
+            return destPixels;
         }
-        if (!this.throughFlag) {
+
+        getRandomRectImg(srcImg) {
+            let startX;
+            let startY;
+            let rectW;
+            let rectH;
+            let destImg;
+            startX = floor(random(0, srcImg.width - 30));
+            startY = floor(random(0, srcImg.height - 50));
+            rectW = floor(random(30, srcImg.width - startX));
+            rectH = floor(random(1, 50));
+            destImg = srcImg.get(startX, startY, rectW, rectH);
+            destImg.loadPixels();
+            return destImg;
+        }
+
+        show() {
+
+            // restore the original state
+            this.replaceData(this.imgOrigin, this.copyData);
+
+            // sometimes pass without effect processing
+            let n = floor(random(100));
+            if (n > 75 && this.throughFlag) {
+                this.throughFlag = false;
+                setTimeout(() => {
+                    this.throughFlag = true;
+                }, floor(random(40, 400)));
+            }
+            if (!this.throughFlag) {
+                push();
+                translate((width - this.imgOrigin.width) / 2, (height - this.imgOrigin.height) / 2);
+                image(this.imgOrigin, 0, 0);
+                pop();
+                return;
+            }
+
+            // flow line
+            this.flowLineImgs.forEach((v, i, arr) => {
+                arr[i].pixels = this.flowLine(this.imgOrigin, v);
+                if (arr[i].pixels) {
+                    this.replaceData(this.imgOrigin, arr[i].pixels);
+                }
+            })
+
+            // shift line
+            this.shiftLineImgs.forEach((v, i, arr) => {
+                if (floor(random(100)) > 50) {
+                    arr[i] = this.shiftLine(this.imgOrigin);
+                    this.replaceData(this.imgOrigin, arr[i]);
+                } else {
+                    if (arr[i]) {
+                        this.replaceData(this.imgOrigin, arr[i]);
+                    }
+                }
+            })
+
+            // shift rgb
+            this.shiftRGBs.forEach((v, i, arr) => {
+                if (floor(random(100)) > 65) {
+                    arr[i] = this.shiftRGB(this.imgOrigin);
+                    this.replaceData(this.imgOrigin, arr[i]);
+                }
+            })
+
             push();
             translate((width - this.imgOrigin.width) / 2, (height - this.imgOrigin.height) / 2);
             image(this.imgOrigin, 0, 0);
             pop();
-            return;
+
+            // scat image
+            this.scatImgs.forEach((obj) => {
+                push();
+                translate((width - this.imgOrigin.width) / 2, (height - this.imgOrigin.height) / 2);
+                if (floor(random(100)) > 80) {
+                    obj.x = floor(random(-this.imgOrigin.width * 0.3, this.imgOrigin.width * 0.7));
+                    obj.y = floor(random(-this.imgOrigin.height * 0.1, this.imgOrigin.height));
+                    obj.img = this.getRandomRectImg(this.imgOrigin);
+                }
+                if (obj.img) {
+                    image(obj.img, obj.x, obj.y);
+                }
+                pop();
+            })
+
         }
 
-        // flow line
-        this.flowLineImgs.forEach((v, i, arr) => {
-            arr[i].pixels = this.flowLine(this.imgOrigin, v);
-            if (arr[i].pixels) {
-                this.replaceData(this.imgOrigin, arr[i].pixels);
-            }
-        })
-
-        // shift line
-        this.shiftLineImgs.forEach((v, i, arr) => {
-            if (floor(random(100)) > 50) {
-                arr[i] = this.shiftLine(this.imgOrigin);
-                this.replaceData(this.imgOrigin, arr[i]);
-            } else {
-                if (arr[i]) {
-                    this.replaceData(this.imgOrigin, arr[i]);
-                }
-            }
-        })
-
-        // shift rgb
-        this.shiftRGBs.forEach((v, i, arr) => {
-            if (floor(random(100)) > 65) {
-                arr[i] = this.shiftRGB(this.imgOrigin);
-                this.replaceData(this.imgOrigin, arr[i]);
-            }
-        })
-
-        push();
-        translate((width - this.imgOrigin.width) / 2, (height - this.imgOrigin.height) / 2);
-        image(this.imgOrigin, 0, 0);
-        pop();
-
-        // scat image
-        this.scatImgs.forEach((obj) => {
-            push();
-            translate((width - this.imgOrigin.width) / 2, (height - this.imgOrigin.height) / 2);
-            if (floor(random(100)) > 80) {
-                obj.x = floor(random(-this.imgOrigin.width * 0.3, this.imgOrigin.width * 0.7));
-                obj.y = floor(random(-this.imgOrigin.height * 0.1, this.imgOrigin.height));
-                obj.img = this.getRandomRectImg(this.imgOrigin);
-            }
-            if (obj.img) {
-                image(obj.img, obj.x, obj.y);
-            }
-            pop();
-        })
-
+    }
+    </script>
+    
+    <style>
+    body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
+    body, html {
+        height: 100%;
+        color: #777;
+        line-height: 1.8;
     }
 
-}
-    </script>
+    /* Create a Parallax Effect */
+    .bgimg-1, .bgimg-2, .bgimg-3 {
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    /* First image (Logo. Full height) */
+    .bgimg-1 {
+        background-image: url(img);
+        min-height: 100%;
+    }
+
+    /* Second image (Portfolio) */
+    .bgimg-2 {
+        background-image: url("Photos/10.jpg");
+        min-height: 400px;
+    }
+
+    /* Third image (Contact) */
+    .bgimg-3 {
+        background-image: url("Photos/7.jpg");
+        min-height: 400px;
+    }
+
+    .w3-wide {letter-spacing: 10px;}
+    .w3-hover-opacity {cursor: pointer;}
+
+    /* Turn off parallax scrolling for tablets and phones */
+    @media only screen and (max-device-width: 1024px) {
+        .bgimg-1, .bgimg-2, .bgimg-3 {
+            background-attachment: scroll;
+        }
+    }
+    </style>
   </head>
-  <body>
-  </body>
+  
+    <body>
+    <!-- First Parallax Image with Logo Text -->
+    <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+      <div class="w3-display-middle" style="white-space:nowrap;">
+        <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">Blog</span></span>
+      </div>
+    </div>
+
+    <!-- Container (About Section) -->
+    <div class="w3-content w3-container w3-padding-64" id="about">
+      <h3 class="w3-center">ABOUT</h3>
+      <div class="w3-row">
+        <div class="w3-col m6 w3-center w3-padding-large">
+          <img src="Photos/13.jpg" "width=100%" height="340">
+        </div>
+
+        <!-- Hide this text on small devices -->
+        <div class="w3-col m6 w3-hide-small w3-padding-large">
+          <p>Just a blog,<br> where I can<br> post anything<br>without other people<br> judging me all the time~</p>
+        </div>
+      </div>
+      <p class="w3-large w3-center w3-padding-16">Im good at:</p>
+      <p class="w3-wide"><i class="fa fa-camera"></i>Photography</p>
+      <div class="w3-light-grey">
+        <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:80%">80%</div>
+      </div>
+      <p class="w3-wide"><i class="fa fa-laptop"></i>Web Design</p>
+      <div class="w3-light-grey">
+        <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:45%">45%</div>
+      </div>
+      <p class="w3-wide"><i class="fa fa-photo"></i>Photoshop</p>
+      <div class="w3-light-grey">
+        <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:55%">55%</div>
+      </div>
+    </div>
+
+    <!-- Second Parallax Image with Portfolio Text -->
+    <div class="bgimg-2 w3-display-container w3-opacity-min">
+      <div class="w3-display-middle">
+        <span class="w3-xxlarge w3-text-white w3-wide">PORTFOLIO</span>
+      </div>
+    </div>
+
+    <!-- Container (Portfolio Section) -->
+    <div class="w3-content w3-container w3-padding-64" id="portfolio">
+      <h3 class="w3-center">MY WORK</h3>
+      <p class="w3-center"><em>Here are some of my work</em></p><br>
+
+      <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
+      <div class="w3-row-padding w3-center">
+        <div class="w3-col m3">
+          <img src="Photos/1.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+        </div>
+
+        <div class="w3-col m3">
+          <img src="Photos/2.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+        </div>
+
+        <div class="w3-col m3">
+          <img src="Photos/3.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+        </div>
+
+        <div class="w3-col m3">
+          <img src="Photos/4.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+        </div>
+      </div>
+
+      <div class="w3-row-padding w3-center w3-section">
+        <div class="w3-col m3">
+          <img src="Photos/5.jpg" style="width:100%" height="340" onclick="onClick(this)" class="w3-hover-opacity">
+        </div>
+
+        <div class="w3-col m3">
+          <img src="Photos/8.jpg" style="width:100%" height="340" onclick="onClick(this)" class="w3-hover-opacity">
+        </div>
+
+        <div class="w3-col m3">
+          <img src="Photos/9.jpg" style="width:100%" height="340" onclick="onClick(this)" class="w3-hover-opacity">
+        </div>
+
+        <div class="w3-col m3">
+          <img src="Photos/11.jpg" style="width:100%" height="340" onclick="onClick(this)" class="w3-hover-opacity">
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for full size images on click-->
+    <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+      <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
+      <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+        <img id="img01" class="w3-image">
+        <p id="caption" class="w3-opacity w3-large"></p>
+      </div>
+    </div>
+
+    <!-- Third Parallax Image with Portfolio Text -->
+    <div class="bgimg-3 w3-display-container w3-opacity-min">
+      <div class="w3-display-middle">
+         <span class="w3-xxlarge w3-text-white w3-wide">CONTACT</span>
+      </div>
+    </div>
+
+    <!-- Container (Contact Section) -->
+    <div class="w3-content w3-container w3-padding-64" id="contact">
+      <h3 class="w3-center">Contact Me</h3>
+
+      <div class="w3-center">
+          <div class="w3-large w3-margin-bottom">
+            <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Singapore<br>
+            <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Phone: 8366 5969<br>
+            <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: mcdulltii@gmail.com<br>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+    // Modal Image Gallery
+    function onClick(element) {
+      document.getElementById("img01").src = element.src;
+      document.getElementById("modal01").style.display = "block";
+      var captionText = document.getElementById("caption");
+      captionText.innerHTML = element.alt;
+    }
+    </script>
+    </body>
 </html>
