@@ -98,6 +98,7 @@
         resizeCanvas(windowWidth, windowHeight);
       }
     </script>
+    
     <script>
     let windowW = window.innerWidth;
     let windowH = window.innerHeight;
@@ -106,7 +107,6 @@
     let imgSrc = 'Photos/12.jpg';
 
     function setup() {
-        background(0);
         createCanvas(windowW, windowH);
         loadImage(imgSrc, function(img) {
             glitch = new Glitch(img);
