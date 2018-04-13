@@ -19,6 +19,10 @@
       var x;
       var y;
       var count;
+      let isLoaded = false;
+      let glitch;
+      let imgSrc = 'Photos/12.jpg';
+
 
       function setup() {
         createCanvas(windowWidth, windowHeight);
@@ -29,15 +33,29 @@
         var wideCount = width/80;
         count = int(highCount * wideCount);
 
-        var index = 0;
-        for (var xc = 0; xc < wideCount; xc++) {
-          for (var yc = 0; yc < highCount; yc++) {
-            mods[index++] = new Module(int(xc)*u,int(yc)*u);
-          }
-         }
+        if (keyCode === UP_ARROW) {
+          var index = 0;
+          for (var xc = 0; xc < wideCount; xc++) {
+            for (var yc = 0; yc < highCount; yc++) {
+              mods[index++] = new Module(int(xc)*u,int(yc)*u);
+            }
+           }
+        } else if (keyCode === DOWN_ARROW) {
+          loadImage(imgSrc, function(img) {
+              glitch = new Glitch(img);
+              isLoaded = true;
+          });
+        }
       }
 
       function draw() {
+        clear();
+        background(0);
+
+        if (isLoaded) {
+            glitch.show();
+        }
+        
         if (mouseIsPressed) {
           background(0);
           stroke(255,163,163);
@@ -97,37 +115,8 @@
       function windowResized() {
         resizeCanvas(windowWidth, windowHeight);
       }
-    </script>
-    
-    <script>
-    let windowW = window.innerWidth;
-    let windowH = window.innerHeight;
-    let isLoaded = false;
-    let glitch;
-    let imgSrc = 'Photos/12.jpg';
-
-    function setup() {
-        createCanvas(windowW, windowH);
-        loadImage(imgSrc, function(img) {
-            glitch = new Glitch(img);
-            isLoaded = true;
-        });
-    }
-
-    function draw() {
-        clear();
-        background(0);
-
-        if (isLoaded) {
-            glitch.show();
-        }
-
-        // fill(255, 255, 255);
-        // textSize(14);
-        // text('FPS: ' + floor(frameRate()), 20, 30);
-
-    }
-
+      
+      
     class Glitch {
         constructor(img) {
             this.channelLen = 4;
