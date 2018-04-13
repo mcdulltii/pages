@@ -32,7 +32,11 @@
         var highCount = height/80;
         var wideCount = width/80;
         count = int(highCount * wideCount);
+      }
 
+      function draw() {
+        clear();
+        background(0);
         if (keyCode === UP_ARROW) {
           var index = 0;
           for (var xc = 0; xc < wideCount; xc++) {
@@ -40,17 +44,13 @@
               mods[index++] = new Module(int(xc)*u,int(yc)*u);
             }
            }
+          isLoaded = false;
         } else if (keyCode === DOWN_ARROW) {
           loadImage(imgSrc, function(img) {
               glitch = new Glitch(img);
               isLoaded = true;
           });
         }
-      }
-
-      function draw() {
-        clear();
-        background(0);
 
         if (isLoaded) {
             glitch.show();
