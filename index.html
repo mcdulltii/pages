@@ -36,19 +36,11 @@
       function draw() {
         clear();
         background(0);
-        if (keyCode == SHIFT) {
-          var index = 0;
-          for (var xc = 0; xc < wideCount; xc++) {
-            for (var yc = 0; yc < highCount; yc++) {
-              mods[index++] = new Module(int(xc)*u,int(yc)*u);
-            }
-           }
-          isLoaded = false;
-        } else if (keyCode == CONTROL) {
-          loadImage(imgSrc, function(img) {
-              glitch = new Glitch(img);
-              isLoaded = true;
-          });
+        var index = 0;
+        for (var xc = 0; xc < wideCount; xc++) {
+          for (var yc = 0; yc < highCount; yc++) {
+            mods[index++] = new Module(int(xc)*u,int(yc)*u);
+          }
         }
 
         if (isLoaded) {
