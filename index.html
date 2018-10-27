@@ -13,7 +13,7 @@
 
 randomNumber = Math.floor(Math.random()*2+1);
   
-window.onload = function() {
+$(docuument).ready(function() {
      if (randomNumber == 1) {
           document.getElementById("rd1").style.display = "inline";
           document.getElementById("rd2").style.display = "none";
@@ -22,7 +22,7 @@ window.onload = function() {
           document.getElementById("rd1").style.display = "none";
           document.getElementById("rd2").style.display = "inline";
      }
-}
+});
 //--></script>
 	  
     <style>
