@@ -5,12 +5,24 @@ body {
 }
 
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  margin: 0 auto;
-  width: 50%;
+    width: 100%;
+
+    /* Firefox */
+    display: -moz-box;
+    -moz-box-pack: center;
+    -moz-box-align: center;
+
+    /* Safari and Chrome */
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+
+    /* W3C */
+    display: box;
+    box-pack: center;
+    box-align: center;
+	
+	transform: translate(0px, 20em);
   z-index: 1011;
 }
 
