@@ -9,6 +9,22 @@
     <link rel="stylesheet" href="style.css">
 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	  <script src="main.js"></script>
+	  	<script type="text/javascript" language="JavaScript">
+
+randomNumber = Math.floor(Math.random()*2+1);
+  
+window.onload = function() {
+     if (randomNumber == 1) {
+          document.getElementById("rd1").style.display = "inline";
+          document.getElementById("rd2").style.display = "none";
+     }
+     if (randomNumber == 2) {
+          document.getElementById("rd1").style.display = "none";
+          document.getElementById("rd2").style.display = "inline";
+     }
+}
+//--></script>
+	  
     <style>
     body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
     body, html {
@@ -269,22 +285,6 @@
     <div class="loader-section section-left"></div>
     <div class="loader-section section-right"></div>
 	</div>
-	
-	<script type="text/javascript" language="JavaScript">
-
-randomNumber = Math.floor(Math.random()*2+1);
-  
-window.onload = function() {
-     if (randomNumber == 1) {
-          document.getElementById("rd1").style.display = "inline";
-          document.getElementById("rd2").style.display = "none";
-     }
-     if (randomNumber == 2) {
-          document.getElementById("rd1").style.display = "none";
-          document.getElementById("rd2").style.display = "inline";
-     }
-}
-//--></script>
 
     </body>
 </html>
