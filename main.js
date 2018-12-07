@@ -1,5 +1,5 @@
 $( window ).on( "load", function() {
  
-     $('body').toggleClass('loaded');
+     $("body").addClass("loaded");
  
 });
