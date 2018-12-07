@@ -1,4 +1,4 @@
-$(document).load(function() {
+$('body').load(function() {
  
     setTimeout(function(){
      $('body').addClass('loaded');
