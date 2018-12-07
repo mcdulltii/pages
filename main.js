@@ -1,4 +1,4 @@
-$('modal01').load(function() {
+$( window ).on( "load", function() {
  
      $('body').toggleClass('loaded');
  
