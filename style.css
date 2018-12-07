@@ -470,7 +470,7 @@ body {
 }
 
 .loading {
-  position: absolute;
+  position: fixed;
   left: 50%;
   top: 50%;
   margin: -35px 0 0 -56px;
