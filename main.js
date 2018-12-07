@@ -1,7 +1,7 @@
-$(document).ready(function() {
+$(document).load(function() {
  
  setTimeout(function(){
     $('body').addClass('loaded');
-  }, 15000);
+  }, 10);
  
 });
