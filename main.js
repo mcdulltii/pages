@@ -1,5 +1,5 @@
-$("#modal01").load(function() {
-
+$("#modal01").ready(function() {
+    setTimeout(
      $("body").addClass("loaded");
-
+     ,50);
 });
