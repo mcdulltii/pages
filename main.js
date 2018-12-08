@@ -1,4 +1,4 @@
-$("body").not("loader-wrapper").load(function() {
+$("#modal01").load(function() {
 
      $("body").addClass("loaded");
 
