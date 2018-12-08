@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$("#portfolio").load(function() {
     setTimeout(function(){
      $('body').addClass('loaded');}
      ,100);
