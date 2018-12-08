@@ -1,4 +1,4 @@
-$(document).not( "loader-wrapper" ).load(function() {
+$(document).not( "port" ).load(function() {
     setTimeout(function(){
      $('body').addClass('loaded');}
      ,100);
