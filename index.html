@@ -99,7 +99,7 @@ $("#loader-wrapper").ready(function() {
     .codegena{position:relative; width:100%; height:0; padding-bottom:56.27198%;}.codegena iframe{position:absolute;top:0;left:0;width:100%;height:100%}
  */
     /* Create a Parallax Effect */
-    .bgimg-1, .bgimg-2, .bgimg-3 {
+    .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4 {
         background-attachment: fixed;
         background-position: center;
         background-repeat: no-repeat;
@@ -113,16 +113,22 @@ $("#loader-wrapper").ready(function() {
         min-height: 100%;
     }
 
-    /* Second image (Portfolio) */
+    /* Second image */
     .bgimg-2 {
         background-image: url("Photos/angular0516.jpg");
         min-height: 400px;
     }
 
-    /* Third image (Contact) */
+    /* Third image */
     .bgimg-3 {
         background-image: url("Photos/angular0279.jpg");
         min-height: 400px;
+    }
+
+    /* Fourth image */
+    .bgimg-4 {
+        background-image: url("Photos/Ice1.png");
+        min-height: 600px;
     }
 
     .w3-wide {letter-spacing: 10px;}
@@ -163,7 +169,7 @@ $("#loader-wrapper").ready(function() {
 
     /* Turn off parallax scrolling for tablets and phones */
     @media only screen and (max-device-width: 1024px) {
-        .bgimg-1, .bgimg-2, .bgimg-3 {
+        .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4 {
             background-attachment: scroll;
         }
     }
@@ -199,7 +205,8 @@ mixpanel.init("d95031ebb6739afe5c615c8782c220d8");</script><!-- end Mixpanel -->
   <div class="item" style="background-image: url(Photos/Ocean0054.png)"></div>
 </div>
 
-
+    <div class="bgimg-4 w3-display-container w3-opacity-min">
+    </div>
 
     <!-- Container (First Section) -->
     <div class="w3-content w3-container w3-padding-64" id="portfolio">
@@ -219,7 +226,7 @@ mixpanel.init("d95031ebb6739afe5c615c8782c220d8");</script><!-- end Mixpanel -->
         </div>
 
         <div class="w3-col m3">
-          <img src="Photos/ice_0020.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+          <img src="Photos/Ice.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
         </div>
 
       </div>
