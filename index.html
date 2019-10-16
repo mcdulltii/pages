@@ -180,15 +180,15 @@
     </div>
 
     <div class="grid">
-        <div class="item" style="background-image: url(Photos/EBall.png)"></div>
+        <div class="item" onclick="onClickgrid(0)" style="background-image: url(Photos/EBall.png)"></div>
 
-        <div class="item" style="background-image: url(Photos/Stairs.png)"></div>
+        <div class="item" onclick="onClickgrid(1)" style="background-image: url(Photos/Stairs.png)"></div>
 
-        <div class="item" style="background-image: url(Photos/Strings0095.png)"></div>
+        <div class="item" onclick="onClickgrid(2)" style="background-image: url(Photos/Strings0095.png)"></div>
 
-        <div class="item" style="background-image: url(Photos/flower.png)"></div>
+        <div class="item" onclick="onClickgrid(3)" style="background-image: url(Photos/flower.png)"></div>
 
-        <div class="item" style="background-image: url(Photos/Ocean0054.png)"></div>
+        <div class="item" onclick="onClickgrid(4)" style="background-image: url(Photos/Ocean0054.png)"></div>
     </div>
 
     <div class="w3-content w3-container w3-padding-64" id="portfolio">
@@ -390,6 +390,14 @@
           document.getElementById("modal01").style.display = "block";
           var captionText = document.getElementById("caption");
           captionText.innerHTML = element.alt;
+        }
+
+        function onClickgrid(element) {
+          var items = document.getElementsByClassName('item');
+          var image = items[element].style["background-image"].match('\"(.*)\"')[1];
+          document.getElementById("img01").src = image;
+          document.getElementById("modal01").style.display = "block";
+          document.getElementById("caption").innerHTML = '';
         }
     </script>
 

@@ -1848,7 +1848,7 @@ body {
   transform: translate3d(-50%, -50%, 0);
   backface-visibility: hidden;
   position: fixed;
-  left: 15%;
+  left: 20%;
   top: 15%;
   padding: 0;
   background-color: transparent;
