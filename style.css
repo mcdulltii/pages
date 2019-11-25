@@ -1952,15 +1952,17 @@ body {
   backface-visibility: hidden;
   left: 78%;
   top: 85%;
-  padding: 0;
   background-color: transparent;
   border: none;
   font: 1rem 'Gill Sans', sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: #fff;
+  padding: 10px;
 }
 
 #myBtn:hover {
   background-color: #ffd1dc;
+  color: #000;
+  border-radius: 10px;
 }
