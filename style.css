@@ -1848,12 +1848,12 @@ body {
   transform: translate3d(-50%, -50%, 0);
   backface-visibility: hidden;
   position: fixed;
-  left: 20%;
+  left: 22%;
   top: 15%;
   padding: 0;
   background-color: transparent;
   border: none;
-  font: 1.3rem 'Anton', sans-serif;
+  font: 1rem 'Gill Sans', sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: #fff;
@@ -1941,4 +1941,26 @@ body {
     border-width: 1px;
     background-color: rgba(14, 56, 118, 0.5);
   }
+}
+
+#myBtn {
+  display: none;
+  position: fixed;
+  font-size: 62.5%;
+  cursor: pointer;
+  outline: none;
+  backface-visibility: hidden;
+  left: 78%;
+  top: 85%;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  font: 1rem 'Gill Sans', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #fff;
+}
+
+#myBtn:hover {
+  background-color: #ffd1dc;
 }

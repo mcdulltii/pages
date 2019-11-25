@@ -1,0 +1,87 @@
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>Scroll</title>
+<style>
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  background: #000;
+  touch-action: pan-y;
+  height: 100vh;
+  overflow: auto;
+}
+section {
+  display: flex;
+  justify-content: center;
+}
+video {
+  position: fixed;
+  z-index: 0;
+  min-height:100%;
+}
+.scroll-dummy {
+  height: 2000px;
+  max-width: 998px;
+  padding: 20px;
+  z-index: 1;
+  font-family: sans-serif;
+}
+
+.scroll-dummy h1 {
+  font-size: 80px;
+  font-weight: 700;
+  padding: 200px 0;
+  color: white;
+}
+
+.scroll-dummy p, .scroll-dummy a {
+  font-size: 20px;
+  color: #ccc;
+  line-height: 1.4;
+}
+
+code {
+  font-family: monospace;
+  background: #333;
+  border: 1px solid #999;
+  border-radius: 4px;
+  padding: 2px 4px;
+}
+</style>
+</head>
+<body>
+<section>
+<video id="video" height="100%" autoplay muted playsinline poster="video.png">
+  <source src="https://huge.makerforce.io/drop/flower.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ambrose%2F20191123%2F%2Fs3%2Faws4_request&X-Amz-Date=20191123T043100Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=a2cdb8951e8ee750c2ce6dce7b27f604d895b7d8fbbe820be7976ece4125460b" type="video/mp4">
+  <!--<source src="https://github.com/mcdulltii/pages/tree/gh-pages/Photos/flower.mp4" type="video/mp4">-->
+  Your browser does not support the video tag.
+</video>
+<div class="scroll-dummy">
+<!--
+<p>
+Tests
+</p>
+-->
+</div>
+</section>
+</body>
+<script>
+var FRAMES = 1000;
+var FPS = 30;
+var video = document.getElementById('video');
+
+window.addEventListener('scroll', function (e) {
+  var time = (window.scrollY / 1500) * FRAMES / FPS;
+  video.currentTime = time;
+  console.log(time);
+});
+
+window.addEventListener('load', function(e) {
+  video.pause();
+  video.currentTime = 0;
+});
+</script>
+</html>
