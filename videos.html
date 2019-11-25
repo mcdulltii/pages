@@ -31,6 +31,12 @@
   </style>
 
   <script src="https://player.vimeo.com/api/player.js"></script>
+  <script>
+    $(document).ready(function() {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    });
+  </script>
   <script src="three.js"></script>
 
 </head>
