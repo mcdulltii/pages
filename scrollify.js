@@ -13,8 +13,8 @@ $(function() {
 
 var videolist = document.getElementById("videos");
 var navbar = document.getElementById("nav");
-for (var i=0; i<videolist.children.length-1; i++) {
+for (var i=1; i<videolist.children.length; i++) {
   var dot = document.createElement("li");
-  dot.className = "dot";
+  dot.className = "dot "+i.toString();
   navbar.appendChild(dot);
 }
