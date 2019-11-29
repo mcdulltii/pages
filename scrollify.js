@@ -1,3 +1,12 @@
+var videolist = document.getElementById("videos");
+var navbar = document.getElementById("nav");
+var vidlength = videolist.children.length+1;
+for (var i=1; i<vidlength; i++) {
+  var dot = document.createElement("li");
+  dot.className = "dot "+i.toString();
+  navbar.appendChild(dot);
+}
+
 $(function() {
   $.scrollify({
     section : ".vidsect",
@@ -9,12 +18,11 @@ $(function() {
     e.preventDefault();
     $.scrollify.next();
   });
-});
 
-var videolist = document.getElementById("videos");
-var navbar = document.getElementById("nav");
-for (var i=1; i<videolist.children.length; i++) {
-  var dot = document.createElement("li");
-  dot.className = "dot "+i.toString();
-  navbar.appendChild(dot);
-}
+  for (var i=1; i<vidlength; i++) {
+    $("."+i.toString()).click(function(e) {
+      e.preventDefault();
+      $.scrollify.move("#"+($(e.target).attr('class')).match(/\d+/)[0]);
+    });
+  }
+});
