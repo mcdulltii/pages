@@ -26,3 +26,25 @@ button{
   position:relative;
   left: 44%;
 }
+
+.dot {
+  height: 25px;
+  width: 25px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: block;
+  margin-bottom:10px;
+}
+.dot:hover {
+  background-color:#ffd1dc;
+  width: 30px;
+  height: 30px;
+  margin-bottom:5px;
+}
+.dots {
+  position: fixed;
+  left: 10%;
+  top: 10%;
+  margin: auto;
+  width:35px;
+}
