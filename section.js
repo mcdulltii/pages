@@ -1,29 +1,11 @@
-$.scrollify({
-  section : "section",
-  sectionName : "section-name",
-  interstitialSection : "",
-  easing: "easeOutExpo",
-  scrollSpeed: 1100,
-  offset : 0,
-  scrollbars: true,
-  standardScrollElements: "",
-  setHeights: true,
-  overflowScroll: true,
-  updateHash: true,
-  touchScroll:true,
-  before:function() {},
-  after:function() {},
-  afterResize:function() {},
-  afterRender:function() {}
-});
-
 $(function() {
   $.scrollify({
     section : ".vidsect",
+    scrollSpeed: 1100
   });
-});
 
-$(".scroll,.scroll-btn").click(function(e) {
-  e.preventDefault();
-  $.scrollify.next();
+  $(".scroll,.scroll-btn").click(function(e) {
+    e.preventDefault();
+    $.scrollify.next();
+  });
 });
