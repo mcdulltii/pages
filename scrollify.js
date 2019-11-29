@@ -1,7 +1,7 @@
 $(function() {
   $.scrollify({
     section : ".vidsect",
-    scrollSpeed: 2500,
+    scrollSpeed: 500,
     scrollbars: false
   });
 
@@ -21,15 +21,5 @@ $(document).on('scroll', function(e){
       document.getElementById("myBtn").style.display = "block";
     } else {
       document.getElementById("myBtn").style.display = "none";
-    }
-
-    var top = $('.vidsect .vidsect:last').offset().top;
-    var screenTop = $(document).scrollTop();
-
-    if (top > screenTop && $.scrollify.isDisabled()) {
-            $.scrollify.enable();
-            $.scrollify.update();
-    } else if (top < screenTop && !$.scrollify.isDisabled()) {
-            $.scrollify.disable();
     }
 });
