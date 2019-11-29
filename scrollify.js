@@ -1,7 +1,8 @@
 $(function() {
   $.scrollify({
     section : ".vidsect",
-    scrollSpeed: 1100
+    scrollSpeed: 1400,
+    scrollbars: false
   });
 
   $(".scroll,.scroll-btn").click(function(e) {
