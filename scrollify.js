@@ -1,7 +1,7 @@
 $(function() {
   $.scrollify({
     section : ".vidsect",
-    scrollSpeed: 1400,
+    scrollSpeed: 2500,
     scrollbars: false
   });
 
@@ -16,10 +16,20 @@ $(function() {
   });
 });
 
-window.onhashchange = function() {
-  if (document.URL.match(/#1/g) == null) {
-    document.getElementById("myBtn").style.display = "block";
-  } else {
-    document.getElementById("myBtn").style.display = "none";
-  }
-};
+$(document).on('scroll', function(e){
+    if (document.URL.match(/#1/g) == null) {
+      document.getElementById("myBtn").style.display = "block";
+    } else {
+      document.getElementById("myBtn").style.display = "none";
+    }
+
+    var top = $('.vidsect .vidsect:last').offset().top;
+    var screenTop = $(document).scrollTop();
+
+    if (top > screenTop && $.scrollify.isDisabled()) {
+            $.scrollify.enable();
+            $.scrollify.update();
+    } else if (top < screenTop && !$.scrollify.isDisabled()) {
+            $.scrollify.disable();
+    }
+});
