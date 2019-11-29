@@ -43,8 +43,9 @@ button{
 }
 #nav {
   position: fixed;
-  left: 10%;
-  top: 10%;
+  cursor: pointer;
+  left: 4%;
+  top: 15%;
   margin: auto;
   width:35px;
 }
