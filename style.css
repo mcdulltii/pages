@@ -1947,7 +1947,7 @@ body {
   }
 }
 
-#myBtn, .top {
+#myBtn {
   display: none;
   position: fixed;
   font-size: 62.5%;
@@ -1965,7 +1965,7 @@ body {
   padding: 10px;
 }
 
-#myBtn:hover, .top:hover {
+#myBtn:hover {
   background-color: #ffd1dc;
   color: #000;
   border-radius: 10px;
