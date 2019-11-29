@@ -41,7 +41,7 @@ button{
   height: 30px;
   margin-bottom:5px;
 }
-.dots {
+#nav {
   position: fixed;
   left: 10%;
   top: 10%;

@@ -13,7 +13,7 @@ $(function() {
 
 var videolist = document.getElementById("videos");
 var navbar = document.getElementById("nav");
-for (var i=0; i<videos.children-1; i++) {
+for (var i=0; i<videolist.children.length-1; i++) {
   var dot = document.createElement("li");
   dot.className = "dot";
   navbar.appendChild(dot);
