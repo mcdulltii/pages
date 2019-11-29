@@ -5,146 +5,18 @@
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131160021-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'UA-131160021-1');
-    </script>
-    <script type="text/javascript">
-        var _gaq = _gaq || [];
-          _gaq.push(['_setAccount', 'UA-131160021-1']);
-          _gaq.push(['_trackPageview']);
-          (function() {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-          })();
-    </script>
+    <script src="gapi.js"></script>
     <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="main.js"></script>
     <link rel="stylesheet" href="Portfolio.css">
     <link rel="stylesheet" href="font.css">
     <link rel="stylesheet" href="font2.css">
     <link rel="stylesheet" href="style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="main.js"></script>
-    <script type="text/javascript" language="JavaScript">
-        randomNumber = Math.floor(Math.random()*2+1);
-
-        $("#loader-wrapper").ready(function() {
-             if (randomNumber == 1) {
-                  document.getElementById("rd1").style.display = "inline";
-                  document.getElementById("rd2").style.display = "none";
-             }
-             if (randomNumber == 2) {
-                  document.getElementById("rd1").style.display = "none";
-                  document.getElementById("rd2").style.display = "inline";
-             }
-        });
-    </script>
-
-    <style>
-        @import 'https://fonts.googleapis.com/css?family=Anton';
-
-        body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
-        body, html {
-            height: 100%;
-            color: #fff;
-            line-height: 1.8;
-        }
-        hr.new2 {
-            border-top: 2px dashed grey;
-        }
-    /*
-        .codegena{position:relative; width:100%; height:0; padding-bottom:56.27198%;}.codegena iframe{position:absolute;top:0;left:0;width:100%;height:100%}
-     */
-        /* Create a Parallax Effect */
-        .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4 {
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-
-        /* First image (Logo. Full height) */
-    /* 	    background-image: url("Photos/6.jpg"); */
-        .bgimg-1 {
-            background-image: url("Photos/granite.png");
-            min-height: 100%;
-        }
-
-        /* Second image */
-        .bgimg-2 {
-            background-image: url("Photos/01.png");
-            min-height: 600px;
-        }
-
-        /* Third image */
-        .bgimg-3 {
-            background-image: url("Photos/fractal-2.png");
-            min-height: 600px;
-        }
-
-        /* Fourth image */
-        .bgimg-4 {
-            background-image: url("Photos/SH_bldg4.png");
-            min-height: 600px;
-        }
-
-        .w3-wide {letter-spacing: 10px;}
-        .w3-hover-opacity {cursor: pointer;}
-
-    			#info {
-    				position: absolute;
-    				top: 0px; width: 100%;
-    				padding: 5px;
-    			}
-
-    			#canvas1, #canvas2, #canvas3 {
-    				position: relative;
-    				display: block;
-    				border: 1px solid red;
-    			}
-
-    			#canvas1 {
-    				width: 300px;
-    				height: 200px;
-    			}
-
-    			#canvas2 {
-    				width: 400px;
-    				height: 100px;
-    				left: 150px;
-    			}
-
-    			#canvas3 {
-    				width: 200px;
-    				height: 300px;
-    				left: 75px;
-    			}
-
-    			a {
-    				text-decoration: none;
-    			}
-
-        /* Turn off parallax scrolling for tablets and phones */
-        @media only screen and (max-device-width: 1024px) {
-            .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4 {
-                background-attachment: scroll;
-            }
-        }
-    </style>
-
+    <link rel="stylesheet" href="styleindex.css">
     <!-- start Mixpanel -->
-    <script type="text/javascript">
-        (function(c,a){if(!a.__SV){var b=window;try{var d,m,j,k=b.location,f=k.hash;d=function(a,b){return(m=a.match(RegExp(b+"=([^&]*)")))?m[1]:null};f&&d(f,"state")&&(j=JSON.parse(decodeURIComponent(d(f,"state"))),"mpeditor"===j.action&&(b.sessionStorage.setItem("_mpcehash",f),history.replaceState(j.desiredHash||"",c.title,k.pathname+k.search)))}catch(n){}var l,h;window.mixpanel=a;a._i=[];a.init=function(b,d,g){function c(b,i){var a=i.split(".");2==a.length&&(b=b[a[0]],i=a[1]);b[i]=function(){b.push([i].concat(Array.prototype.slice.call(arguments,
-        0)))}}var e=a;"undefined"!==typeof g?e=a[g]=[]:g="mixpanel";e.people=e.people||[];e.toString=function(b){var a="mixpanel";"mixpanel"!==g&&(a+="."+g);b||(a+=" (stub)");return a};e.people.toString=function(){return e.toString(1)+".people (stub)"};l="disable time_event track track_pageview track_links track_forms track_with_groups add_group set_group remove_group register register_once alias unregister identify name_tag set_config reset opt_in_tracking opt_out_tracking has_opted_in_tracking has_opted_out_tracking clear_opt_in_out_tracking people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user people.remove".split(" ");
-        for(h=0;h<l.length;h++)c(e,l[h]);var f="set set_once union unset remove delete".split(" ");e.get_group=function(){function a(c){b[c]=function(){call2_args=arguments;call2=[c].concat(Array.prototype.slice.call(call2_args,0));e.push([d,call2])}}for(var b={},d=["get_group"].concat(Array.prototype.slice.call(arguments,0)),c=0;c<f.length;c++)a(f[c]);return b};a._i.push([b,d,g])};a.__SV=1.2;b=c.createElement("script");b.type="text/javascript";b.async=!0;b.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?
-        MIXPANEL_CUSTOM_LIB_URL:"file:"===c.location.protocol&&"//cdn4.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn4.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn4.mxpnl.com/libs/mixpanel-2-latest.min.js";d=c.getElementsByTagName("script")[0];d.parentNode.insertBefore(b,d)}})(document,window.mixpanel||[]);
-        mixpanel.init("d95031ebb6739afe5c615c8782c220d8");
-    </script>
+    <script src="mixpanel.js"></script>
     <!-- end Mixpanel -->
-
 </head>
 
 <body>
@@ -382,39 +254,6 @@
             <p id="caption" class="w3-opacity w3-large"></p>
         </div>
     </div>
-
-    <script>
-        // Modal Image Gallery
-        function onClick(element) {
-          document.getElementById("img01").src = element.src;
-          document.getElementById("modal01").style.display = "block";
-          var captionText = document.getElementById("caption");
-          captionText.innerHTML = element.alt;
-        }
-
-        function onClickgrid(element) {
-          var items = document.getElementsByClassName('item');
-          var image = items[element].style["background-image"].match('\"(.*)\"')[1];
-          document.getElementById("img01").src = image;
-          document.getElementById("modal01").style.display = "block";
-          document.getElementById("caption").innerHTML = '';
-        }
-
-        window.onscroll = function() {
-          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            document.getElementById("myBtn").style.display = "block";
-          } else {
-            document.getElementById("myBtn").style.display = "none";
-          }
-        };
-
-        function toTop() {
-          document.body.scrollTop = 0; // For Safari
-          document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-        }
-
-        $(document).ready(toTop());
-    </script>
 
     <script src="three.js"></script>
 
