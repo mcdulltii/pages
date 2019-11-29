@@ -20,4 +20,10 @@ $.scrollify({
 $(function() {
   $.scrollify({
     section : ".vidsect",
+  });
+});
+
+$(".scroll,.scroll-btn").click(function(e) {
+  e.preventDefault();
+  $.scrollify.next();
 });
