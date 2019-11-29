@@ -16,7 +16,7 @@ $(function() {
   });
 });
 
-window.onscroll = function() {
+window.onhashchange = function() {
   if (document.URL.match(/#1/g) == null) {
     document.getElementById("myBtn").style.display = "block";
   } else {
