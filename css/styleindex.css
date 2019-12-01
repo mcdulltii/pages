@@ -23,25 +23,25 @@ hr.new2 {
 /* First image (Logo. Full height) */
 /* 	    background-image: url("Photos/6.jpg"); */
 .bgimg-1 {
-    background-image: url("Photos/granite.png");
+    background-image: url("../Photos/granite.png");
     min-height: 100%;
 }
 
 /* Second image */
 .bgimg-2 {
-    background-image: url("Photos/01.png");
+    background-image: url("../Photos/01.png");
     min-height: 600px;
 }
 
 /* Third image */
 .bgimg-3 {
-    background-image: url("Photos/fractal-2.png");
+    background-image: url("../Photos/fractal-2.png");
     min-height: 600px;
 }
 
 /* Fourth image */
 .bgimg-4 {
-    background-image: url("Photos/SH_bldg4.png");
+    background-image: url("../Photos/SH_bldg4.png");
     min-height: 600px;
 }
 
