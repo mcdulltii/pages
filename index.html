@@ -310,17 +310,18 @@
 
     <script type="application/javascript">
         function getIP(json) {
-             mixpanel.identify( json.ip );
-             mixpanel.people.set({
-               "$first_name": json.ip ,
-               "$ip": json.ip,
-             });
-             mixpanel.track("Pages");
-           }
+            mixpanel.identify( json.ip );
+            mixpanel.people.set({
+              "$first_name": json.ip ,
+              "$ip": json.ip,
+            });
+            mixpanel.track("Pages");
+        }
+        $(document).ready(toTop());
     </script>
     <script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
 
-    <button class="skew-button" id="skew-button"><a href="https://mcdulltii.github.io/pages/videos.html"><span>Click Here for Videos</span></a></button>
+    <button class="skew-button" style="display:block;" id="skew-button"><a href="https://mcdulltii.github.io/pages/videos.html"><span>Click Here for Videos</span></a></button>
 
     <button onclick="toTop()" style="display:none;" id="myBtn" title="Go to top">Back to Top</button>
 
