@@ -30,8 +30,10 @@ function onClickgrid(element) {
 window.onscroll = function() {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
     document.getElementById("myBtn").style.display = "block";
+    document.getElementById("skew-button").style.display = "none";
   } else {
     document.getElementById("myBtn").style.display = "none";
+    document.getElementById("skew-button").style.display = "block";
   }
 };
 
