@@ -19,8 +19,8 @@ function onClick(element) {
   captionText.innerHTML = element.alt;
 }
 
-function onClickgrid(element) {
-  var items = document.getElementsByClassName('item');
+function onClickgrid(classname, element) {
+  var items = document.getElementsByClassName(classname);
   var image = items[element].style["background-image"].match('\"(.*)\"')[1];
   document.getElementById("img01").src = image;
   document.getElementById("modal01").style.display = "block";
