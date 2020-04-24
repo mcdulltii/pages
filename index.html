@@ -33,19 +33,19 @@
         <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
         <div class="w3-row-padding w3-center">
             <div class="w3-col m3">
-                <img src="Photos/grass1.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+                <img src="Photos/grass1.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" loading="lazy">
             </div>
 
             <div class="w3-col m3">
-                <img src="Photos/grass2.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+                <img src="Photos/grass2.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" loading="lazy">
             </div>
 
             <div class="w3-col m3">
-                <img src="Photos/grass3.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+                <img src="Photos/grass3.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" loading="lazy">
             </div>
 
             <div class="w3-col m3">
-                <img src="Photos/grass4.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+                <img src="Photos/grass4.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" loading="lazy">
             </div>
 
         </div>
@@ -53,15 +53,15 @@
     </div>
 
     <div class="grid">
-        <div class="item" onclick="onClickgrid(0)" style="background-image: url(Photos/EBall.png)"></div>
+        <div class="item" onclick="onClickgrid('item',0)" style="background-image: url(Photos/EBall.png)"></div>
 
-        <div class="item" onclick="onClickgrid(1)" style="background-image: url(Photos/Stairs.png)"></div>
+        <div class="item" onclick="onClickgrid('item',1)" style="background-image: url(Photos/Stairs.png)"></div>
 
-        <div class="item" onclick="onClickgrid(2)" style="background-image: url(Photos/Strings0095.png)"></div>
+        <div class="item" onclick="onClickgrid('item',2)" style="background-image: url(Photos/Strings0095.png)"></div>
 
-        <div class="item" onclick="onClickgrid(3)" style="background-image: url(Photos/Flower0280.png)"></div>
+        <div class="item" onclick="onClickgrid('item',3)" style="background-image: url(Photos/Flower0280.png)"></div>
 
-        <div class="item" onclick="onClickgrid(4)" style="background-image: url(Photos/milkcave0551.jpg)"></div>
+        <div class="item" onclick="onClickgrid('item',4)" style="background-image: url(Photos/milkcave0551.jpg)"></div>
     </div>
 
     <div class="w3-content w3-container w3-padding-64" id="portfolio">
@@ -69,38 +69,38 @@
         <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
         <div class="w3-row-padding w3-center">
             <div class="w3-col m3">
-                <img src="Photos/fur0220.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+                <img src="Photos/fur0220.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" loading="lazy">
             </div>
 
             <div class="w3-col m3">
-                <img src="Photos/flower.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+                <img src="Photos/flower.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" loading="lazy">
             </div>
 
             <div class="w3-col m3">
-                <img src="Photos/tree0000.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+                <img src="Photos/tree0000.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" loading="lazy">
             </div>
 
             <div class="w3-col m3">
-                <img src="Photos/boxbeat1.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+                <img src="Photos/boxbeat1.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" loading="lazy">
             </div>
 
         </div>
 
         <div class="w3-row-padding w3-center w3-section">
             <div class="w3-col m3">
-                <img src="Photos/smoke0050.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+                <img src="Photos/smoke0050.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" loading="lazy">
             </div>
 
             <div class="w3-col m3">
-                <img src="Photos/Fox0011.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+                <img src="Photos/Fox0011.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" loading="lazy">
             </div>
 
             <div class="w3-col m3">
-                <img src="Photos/Dodec.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+                <img src="Photos/Dodec.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" loading="lazy">
             </div>
 
             <div class="w3-col m3">
-                <img src="Photos/Fox0083.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+                <img src="Photos/Fox0083.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" loading="lazy">
             </div>
 
         </div>
@@ -108,7 +108,7 @@
     </div>
 
     <!-- First Parallax Image with Portfolio Text -->
-    <div class="bgimg-2 w3-display-container w3-opacity-min">
+    <div class="bgimg-2 w3-display-container w3-opacity-min parallax" onclick="onClickgrid('parallax', 0)" style="background-image: url(Photos/01.png)">
     </div>
 
     <div class="w3-content w3-container w3-padding-64" id="portfolio">
@@ -116,38 +116,38 @@
         <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
         <div class="w3-row-padding w3-center">
             <div class="w3-col m3">
-                <img src="Photos/fractal-1.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+                <img src="Photos/fractal-1.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" loading="lazy">
             </div>
 
             <div class="w3-col m3">
-                <img src="Photos/fractal-3.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+                <img src="Photos/fractal-3.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" loading="lazy">
             </div>
 
             <div class="w3-col m3">
-                <img src="Photos/Cloth0114.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+                <img src="Photos/Cloth0114.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" loading="lazy">
             </div>
 
             <div class="w3-col m3">
-                <img src="Photos/glass0260.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+                <img src="Photos/glass0260.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" loading="lazy">
             </div>
 
         </div>
 
         <div class="w3-row-padding w3-center w3-section">
             <div class="w3-col m3">
-                <img src="Photos/SH_bldg5.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+                <img src="Photos/SH_bldg5.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" loading="lazy">
             </div>
 
             <div class="w3-col m3">
-                <img src="Photos/SH_bldg1.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+                <img src="Photos/SH_bldg1.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" loading="lazy">
             </div>
 
             <div class="w3-col m3">
-                <img src="Photos/SH_bldg3.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+                <img src="Photos/SH_bldg3.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" loading="lazy">
             </div>
 
             <div class="w3-col m3">
-                <img src="Photos/SH_bldg2-1.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+                <img src="Photos/SH_bldg2-1.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" loading="lazy">
             </div>
 
         </div>
@@ -155,7 +155,7 @@
     </div>
 
     <!-- Second Parallax Image with Portfolio Text -->
-    <div class="bgimg-3 w3-display-container w3-opacity-min">
+    <div class="bgimg-3 w3-display-container w3-opacity-min parallax" onclick="onClickgrid('parallax', 1)" style="background-image: url(Photos/fractal-2.png)">
     </div>
 
     <div class="w3-content w3-container w3-padding-64" id="portfolio">
@@ -163,38 +163,38 @@
         <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
         <div class="w3-row-padding w3-center">
             <div class="w3-col m3">
-                <img src="Photos/Valley.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+                <img src="Photos/Valley.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" loading="lazy">
             </div>
 
             <div class="w3-col m3">
-                <img src="Photos/Mountain.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+                <img src="Photos/Mountain.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" loading="lazy">
             </div>
 
             <div class="w3-col m3">
-                <img src="Photos/Mountain1.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+                <img src="Photos/Mountain1.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" loading="lazy">
             </div>
 
             <div class="w3-col m3">
-                <img src="Photos/Mountain2.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+                <img src="Photos/Mountain2.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" loading="lazy">
             </div>
 
         </div>
 
         <div class="w3-row-padding w3-center w3-section">
             <div class="w3-col m3">
-                <img src="Photos/Splash0030.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+                <img src="Photos/Splash0030.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" loading="lazy">
             </div>
 
             <div class="w3-col m3">
-                <img src="Photos/Splash0033.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+                <img src="Photos/Splash0033.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" loading="lazy">
             </div>
 
             <div class="w3-col m3">
-                <img src="Photos/Mountain3.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+                <img src="Photos/Mountain3.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" loading="lazy">
             </div>
 
             <div class="w3-col m3">
-                <img src="Photos/Mountain4.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+                <img src="Photos/Mountain4.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" loading="lazy">
             </div>
 
         </div>
@@ -202,7 +202,7 @@
     </div>
 
     <!-- Third Parallax Image with Portfolio Text -->
-    <div class="bgimg-4 w3-display-container w3-opacity-min">
+    <div class="bgimg-4 w3-display-container w3-opacity-min parallax" onclick="onClickgrid('parallax', 2)" style="background-image: url(Photos/SH_bldg4.png)">
     </div>
 
     <div class="w3-content w3-container w3-padding-64" id="portfolio">
@@ -210,38 +210,38 @@
         <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
         <div class="w3-row-padding w3-center">
             <div class="w3-col m3">
-                <img src="Photos/Spheres2_0140.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+                <img src="Photos/Spheres2_0140.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" loading="lazy">
             </div>
 
             <div class="w3-col m3">
-                <img src="Photos/Fractal1.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+                <img src="Photos/Fractal1.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" loading="lazy">
             </div>
 
             <div class="w3-col m3">
-                <img src="Photos/Fractal2.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+                <img src="Photos/Fractal2.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" loading="lazy">
             </div>
 
             <div class="w3-col m3">
-                <img src="Photos/Fractal.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+                <img src="Photos/Fractal.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" loading="lazy">
             </div>
 
         </div>
 
         <div class="w3-row-padding w3-center w3-section">
             <div class="w3-col m3">
-                <img src="Photos/Clock.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+                <img src="Photos/Clock.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" loading="lazy">
             </div>
 
             <div class="w3-col m3">
-                <img src="Photos/Gear2.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+                <img src="Photos/Gear2.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" loading="lazy">
             </div>
 
             <div class="w3-col m3">
-                <img src="Photos/Gear3.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+                <img src="Photos/Gear3.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" loading="lazy">
             </div>
 
             <div class="w3-col m3">
-                <img src="Photos/Gear4.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+                <img src="Photos/Gear4.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" loading="lazy">
             </div>
 
         </div>
